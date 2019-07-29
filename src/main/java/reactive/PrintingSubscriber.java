@@ -1,6 +1,4 @@
-package main;
-
-import reactive.SubscriberBase;
+package reactive;
 
 /**
  * Created by mtumilowicz on 2018-05-21.

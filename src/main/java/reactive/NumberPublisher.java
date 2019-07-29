@@ -1,6 +1,7 @@
-package main;
+package reactive;
 
 import java.util.concurrent.SubmissionPublisher;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 
 /**
@@ -13,6 +14,13 @@ public class NumberPublisher extends SubmissionPublisher<Integer> {
             submit(i);
             sleep();
         });
+    }
+    
+    FilteringProcessor<Integer> filter(Predicate<Integer> p) {
+        FilteringProcessor<Integer> processor = new FilteringProcessor<>(i -> i % 2 == 0);
+        this.subscribe(processor);
+        
+        return processor;
     }
 
     private void sleep() {

@@ -12,6 +12,12 @@ public class MappingProcessor<In, Out> extends ProcessorBase<In, Out> {
     public MappingProcessor(Function<In, Out> function) {
         this.function = function;
     }
+    
+    void forEachPrint() {
+        PrintingSubscriber<Out> printingSubscriber = new PrintingSubscriber<>();
+        
+        this.subscribe(printingSubscriber);
+    }
 
     @Override
     public void onNext(In item) {

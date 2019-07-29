@@ -1,5 +1,6 @@
 package reactive;
 
+import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
@@ -20,5 +21,12 @@ public class FilteringProcessor<T> extends ProcessorBase<T, T> {
         }
 
         subscription.request(1);
+    }
+
+    <R> MappingProcessor<T, R> map(Function<T, R> map) {
+        MappingProcessor<T, R> processor = new MappingProcessor<>(map);
+        this.subscribe(processor);
+
+        return processor;
     }
 }
