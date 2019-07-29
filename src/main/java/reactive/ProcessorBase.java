@@ -2,7 +2,6 @@ package reactive;
 
 import java.util.concurrent.Flow;
 import java.util.concurrent.SubmissionPublisher;
-import java.util.function.Function;
 
 /**
  * Created by mtumilowicz on 2018-05-21.
@@ -27,12 +26,5 @@ public abstract class ProcessorBase <In, Out> extends SubscriberBase<In> impleme
 
     void submit(Out item) {
         submissionPublisher.submit(item);
-    }
-
-    <R> MappingProcessor<Out, R> map(Function<Out, R> map) {
-        MappingProcessor<Out, R> processor = new MappingProcessor<>(map);
-        this.subscribe(processor);
-
-        return processor;
     }
 }

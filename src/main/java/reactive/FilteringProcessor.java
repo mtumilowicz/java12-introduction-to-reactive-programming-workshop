@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-public class FilteringProcessor<T> extends ProcessorBase<T, T> {
+public class FilteringProcessor<T> extends ProcessorBase<T, T> implements XProcessor<T, T> {
 
     private final Predicate<T> predicate;
 
@@ -21,11 +21,4 @@ public class FilteringProcessor<T> extends ProcessorBase<T, T> {
 
         subscription.request(1);
     }
-
-//    <R> MappingProcessor<T, R> map(Function<T, R> map) {
-//        MappingProcessor<T, R> processor = new MappingProcessor<>(map);
-//        this.subscribe(processor);
-//
-//        return processor;
-//    }
 }
