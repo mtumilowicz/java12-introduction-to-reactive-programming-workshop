@@ -16,6 +16,7 @@ public class Main {
 //        mappingProcessor.subscribe(printingSubscriber);
 
         numberPublisher.filter(i -> i % 2 == 0)
+                .filter(i -> i % 4 == 0)
                 .map(i -> "new mapping: " + i)
                 .forEachPrint();
 

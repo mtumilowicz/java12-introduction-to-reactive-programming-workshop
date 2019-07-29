@@ -21,4 +21,10 @@ interface XProcessor<In, Out> extends Flow.Publisher<Out> {
 
         return processor;
     }
+
+    default void forEachPrint() {
+        PrintingSubscriber<Out> printingSubscriber = new PrintingSubscriber<>();
+
+        this.subscribe(printingSubscriber);
+    }
 }
