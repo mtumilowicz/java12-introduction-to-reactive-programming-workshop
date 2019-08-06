@@ -24,7 +24,7 @@ a component that acts as both a `Subscriber` and `Publisher` (can
 consume input and produce output).  
 **[Flow.SubmissionPublisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/SubmissionPublisher.html)** - 
 It's the only  one implementation (in `JDK`) of `Flow.Publisher`. 
-Moreover - has ability to asynchronously issues submitted (non-null) 
+Moreover - has ability to asynchronously issue submitted (non-null) 
 items to current subscribers until it is closed.
 
 ## data flow
