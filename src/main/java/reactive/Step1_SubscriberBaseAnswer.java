@@ -5,7 +5,7 @@ import java.util.concurrent.Flow;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-abstract class SubscriberBase<T> implements Flow.Subscriber<T> {
+abstract class Step1_SubscriberBaseAnswer<T> implements Flow.Subscriber<T> {
     Flow.Subscription subscription;
 
     @Override

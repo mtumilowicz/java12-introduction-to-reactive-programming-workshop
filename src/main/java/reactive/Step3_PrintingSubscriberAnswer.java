@@ -3,7 +3,7 @@ package reactive;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-class PrintingSubscriber<T> extends SubscriberBase<T> {
+class Step3_PrintingSubscriberAnswer<T> extends Step1_SubscriberBaseAnswer<T> {
 
     @Override
     public void onNext(T item) {
