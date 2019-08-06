@@ -5,17 +5,15 @@ import java.util.concurrent.Flow;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-public abstract class SubscriberBase<T> implements Flow.Subscriber<T> {
-    
-    protected Flow.Subscription subscription;
-    
+abstract class SubscriberBase<T> implements Flow.Subscriber<T> {
+    Flow.Subscription subscription;
+
     @Override
     public void onSubscribe(Flow.Subscription subscription) {
         if (this.subscription == null) {
             this.subscription = subscription;
             this.subscription.request(1);
-        }
-        else {
+        } else {
             subscription.cancel();
         }
     }

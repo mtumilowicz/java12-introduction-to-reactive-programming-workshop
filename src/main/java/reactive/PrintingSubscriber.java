@@ -3,7 +3,8 @@ package reactive;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-public class PrintingSubscriber<T> extends SubscriberBase<T> {
+class PrintingSubscriber<T> extends SubscriberBase<T> {
+
     @Override
     public void onNext(T item) {
         System.out.println("onNext, item: " + item);

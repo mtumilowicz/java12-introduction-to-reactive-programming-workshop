@@ -6,10 +6,10 @@ import java.util.stream.IntStream;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-public class NumberPublisher extends SubmissionPublisher<Integer> implements XProcessor<Integer, Integer> {
-    
-    public void start() {
-        IntStream.iterate(1, i->i+1).forEach(i -> {
+class NumberPublisher extends SubmissionPublisher<Integer> implements XProcessor<Integer, Integer> {
+
+    void start() {
+        IntStream.iterate(1, i -> i + 1).forEach(i -> {
             submit(i);
             sleep();
         });

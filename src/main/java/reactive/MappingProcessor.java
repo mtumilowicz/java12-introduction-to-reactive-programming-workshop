@@ -5,11 +5,10 @@ import java.util.function.Function;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-public class MappingProcessor<In, Out> extends ProcessorBase<In, Out> implements XProcessor<In, Out> {
-
+class MappingProcessor<In, Out> extends ProcessorBase<In, Out> implements XProcessor<In, Out> {
     private final Function<In, Out> function;
 
-    public MappingProcessor(Function<In, Out> function) {
+    MappingProcessor(Function<In, Out> function) {
         this.function = function;
     }
 

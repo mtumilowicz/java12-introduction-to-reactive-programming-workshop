@@ -5,11 +5,10 @@ import java.util.function.Predicate;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-public class FilteringProcessor<T> extends ProcessorBase<T, T> implements XProcessor<T, T> {
-
+class FilteringProcessor<T> extends ProcessorBase<T, T> implements XProcessor<T, T> {
     private final Predicate<T> predicate;
 
-    public FilteringProcessor(Predicate<T> predicate) {
+    FilteringProcessor(Predicate<T> predicate) {
         this.predicate = predicate;
     }
 
