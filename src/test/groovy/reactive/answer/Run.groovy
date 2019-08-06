@@ -3,7 +3,8 @@ package reactive.answer
 class Run {
 
     static void main(String[] args) {
-
+        chaining()
+//        imperative()
     }
 
     static def chaining() {
