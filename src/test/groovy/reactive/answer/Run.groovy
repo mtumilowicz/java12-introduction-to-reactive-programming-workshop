@@ -19,7 +19,7 @@ class Run {
     static def imperative() {
         Step6_NumberPublisherAnswer numberPublisher = new Step6_NumberPublisherAnswer()
 
-        Step3_PrintingSubscriberAnswer<String> printingSubscriber = new Step3_PrintingSubscriberAnswer<>()
+        Step2_PrintingSubscriberAnswer<String> printingSubscriber = new Step2_PrintingSubscriberAnswer<>()
         Step5_MappingProcessorAnswer<Integer, String> mappingProcessor = new Step5_MappingProcessorAnswer<>({
             "new mapping: ${it} "
         })

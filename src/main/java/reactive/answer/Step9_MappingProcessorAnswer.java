@@ -5,7 +5,7 @@ import java.util.function.Function;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-class Step9_MappingProcessorAnswer<In, Out> extends Step2_ProcessorBaseAnswer<In, Out>
+class Step9_MappingProcessorAnswer<In, Out> extends Step3_ProcessorBaseAnswer<In, Out>
         implements Step7_StreamAnswer<Out> {
     private final Function<In, Out> function;
 

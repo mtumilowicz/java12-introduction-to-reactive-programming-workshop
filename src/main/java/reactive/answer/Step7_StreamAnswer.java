@@ -23,7 +23,7 @@ interface Step7_StreamAnswer<In> extends Flow.Publisher<In> {
     }
 
     default void forEachPrint() {
-        Step3_PrintingSubscriberAnswer<In> printingSubscriber = new Step3_PrintingSubscriberAnswer<>();
+        Step2_PrintingSubscriberAnswer<In> printingSubscriber = new Step2_PrintingSubscriberAnswer<>();
 
         this.subscribe(printingSubscriber);
     }
