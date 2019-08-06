@@ -1,4 +1,6 @@
+[![Build Status](https://travis-ci.org/mtumilowicz/java12-introduction-to-reactive-programming-workshop.svg?branch=master)](https://travis-ci.org/mtumilowicz/java12-introduction-to-reactive-programming-workshop)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 # java12-introduction-to-reactive-programming-workshop
 _Reference_: [Out-of-the-box Reactive Streams with Java 9](https://www.youtube.com/watch?v=COgktgJmP_k)  
 _Reference_: https://github.com/rucek/reactive-streams-java9
