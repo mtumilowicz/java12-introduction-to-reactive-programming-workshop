@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-class Step8_FilteringProcessorAnswer<T> extends Step2_ProcessorBaseAnswer<T, T> implements Step7_XProcessorAnswer<T, T> {
+class Step8_FilteringProcessorAnswer<T> extends Step2_ProcessorBaseAnswer<T, T> implements Step7_StreamAnswer<T, T> {
     private final Predicate<T> predicate;
 
     Step8_FilteringProcessorAnswer(Predicate<T> predicate) {

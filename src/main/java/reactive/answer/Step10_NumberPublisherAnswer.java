@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
  * Created by mtumilowicz on 2018-05-21.
  */
 class Step10_NumberPublisherAnswer extends SubmissionPublisher<Integer>
-        implements Step7_XProcessorAnswer<Integer, Integer> {
+        implements Step7_StreamAnswer<Integer, Integer> {
 
     void start() {
         IntStream.iterate(1, i -> i + 1).forEach(i -> {
