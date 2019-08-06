@@ -51,7 +51,7 @@ method of the publisher
     with an `IllegalStateException`, and the interaction ends
 1. The subscriber sends a request to the publisher for `N` items calling the `request(N)` 
 on the `Subscription`
-1. Multiple requests are send regardless earlier are already fulfilled (non-blocking)
+1. Multiple requests are send regardless if earlier are already fulfilled (non-blocking)
 1. The publisher calls the `onNext(T item)` method of the subscriber and sends an item in each call
     * if there is no more items to send the publisher calls the `onComplete()` method of the subscriber to signal
 the end of stream, and interaction ends
