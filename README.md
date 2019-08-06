@@ -84,3 +84,18 @@ because we want our `Subscriber` talk to only one `Publisher` -
 `Subscription` represents a link between single `Subscriber` and single 
 `Publisher` so you have to cancel the incoming one (if we already have 
 one, we don't accept any furthers).
+
+## tests
+We test it by running:
+* `RunAnswer`
+* `RunWorkshop`
+the output should be:
+```
+onNext, item: new mapping: 2
+onNext, item: new mapping: 4
+onNext, item: new mapping: 6
+onNext, item: new mapping: 8
+onNext, item: new mapping: 10
+onNext, item: new mapping: 12
+...
+```
