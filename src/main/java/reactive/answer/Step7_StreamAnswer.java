@@ -15,8 +15,8 @@ interface Step7_StreamAnswer<In> extends Flow.Publisher<In> {
         return processor;
     }
 
-    default Step8_FilteringProcessorAnswer<In> filter(Predicate<In> p) {
-        Step8_FilteringProcessorAnswer<In> processor = new Step8_FilteringProcessorAnswer<>(p);
+    default Step10_FilteringProcessorAnswer<In> filter(Predicate<In> p) {
+        Step10_FilteringProcessorAnswer<In> processor = new Step10_FilteringProcessorAnswer<>(p);
         this.subscribe(processor);
 
         return processor;

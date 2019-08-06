@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-class Step10_NumberPublisherAnswer extends SubmissionPublisher<Integer>
+class Step8_NumberPublisherAnswer extends SubmissionPublisher<Integer>
         implements Step7_StreamAnswer<Integer> {
 
     void start() {
