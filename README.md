@@ -1,14 +1,16 @@
 # java9-reactive-streams
+_Reference_: [Out-of-the-box Reactive Streams with Java 9](https://www.youtube.com/watch?v=COgktgJmP_k)  
+_Reference_: https://github.com/rucek/reactive-streams-java9
+_Reference_: https://github.com/reactive-streams/reactive-streams-jvm  
+_Reference_: https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html
+
+#preface
 The main goal of this project is to explore basic features of 
 `reactive streams` in `Java 9`:
 * **Publisher**
 * **Subscriber**
 * **Subscription** (**Backpressure**)
 * **Processor** (**SubmissionPublisher**)
-
-_Reference_: [Out-of-the-box Reactive Streams with Java 9](https://www.youtube.com/watch?v=COgktgJmP_k)  
-_Reference_: https://github.com/reactive-streams/reactive-streams-jvm  
-_Reference_: https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html
 
 ## definitions
 In `Java 9` naming conventions:  
@@ -41,7 +43,8 @@ Note that if we have multiple `subscribers` and one `publisher` - they
 are receiving elements in the same order.
 
 ## interaction steps
-1. Implement `Flow.Publisher` (useful implementation, can he extended: `SubmissionPublisher<T>`) and `Flow.Subscriber`
+1. Implement `Flow.Publisher` (useful, existing implementation that can be extended: `SubmissionPublisher<T>`) 
+and `Flow.Subscriber`
 1. The subscriber attempts to subscribe to the publisher by calling the 
 `subscribe(Flow.Subscriber<? super T> subscriber)`
 method of the publisher
@@ -63,9 +66,7 @@ the end of stream, and interaction ends
     * it is possible for the subscriber to receive items after
     cancellation if there were pending requests before
 
-## project content
-
-### SubscriberBase
+## additional remarks
 Correctly `@Override` method `onSubscribe` looks as below:
 ```
 @Override
@@ -83,28 +84,3 @@ because we want our `Subscriber` talk to only one `Publisher` -
 `Subscription` represents a link between single `Subscriber` and single 
 `Publisher` so you have to cancel the incoming one (if we already have 
 one, we don't accept any furthers).
-
-### Main
-In the main method we conctruct essentially something like this:
-```
-IntStream.iterate(1, i->i+1).filter(i->i%2 == 0).mapToObj(i -> "new mapping: " + i).forEach(i -> System.out.println("onNext, item: " + i));
-```
-but using reactive steam api.
-
-### NumberPublisher
-`SubmissionPublisher` with additional method `start()` to run
-the whole pipeline.
-```
-public void start() {
-    IntStream.iterate(1,i->i+1).forEach(i -> {
-        submit(i);
-        sleep();
-    });
-}
-```
-We `sleep()` our `Thread` for a second - to make the whole process
-clearer and more readable.
-
-### Processors: FilteringProcessor, MappingProcessor
-
-### Subscriber: PrintingSubscriber
