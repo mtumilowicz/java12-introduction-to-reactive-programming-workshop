@@ -16,18 +16,18 @@ The main goal of this project is to explore basic features of
 * **Processor** (**SubmissionPublisher**)
 
 ## definitions
-In `Java 9` naming conventions:  
-**[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
+Conceptual map:  
+* **[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
 source of data.  
-**[Flow.Subscriber](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscriber.html)** - 
+* **[Flow.Subscriber](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscriber.html)** - 
 destination of data.  
-**[Flow.Subscription](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscription.html)** - 
+* **[Flow.Subscription](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscription.html)** - 
 message control linking a `Flow.Publisher` and `Flow.Subscriber` 
 (`Subscriber` signal demand to `Publisher`).  
-**[Flow.Processor](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Processor.html)** - 
+* **[Flow.Processor](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Processor.html)** - 
 a component that acts as both a `Subscriber` and `Publisher` (can 
 consume input and produce output).  
-**[Flow.SubmissionPublisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/SubmissionPublisher.html)** - 
+* **[Flow.SubmissionPublisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/SubmissionPublisher.html)** - 
 It's the only  one implementation (in `JDK`) of `Flow.Publisher`. 
 Moreover - has ability to asynchronously issue submitted (non-null) 
 items to current subscribers until it is closed.
