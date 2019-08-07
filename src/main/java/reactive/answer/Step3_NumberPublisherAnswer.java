@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-class Step4_NumberPublisherAnswer extends SubmissionPublisher<Integer> {
+class Step3_NumberPublisherAnswer extends SubmissionPublisher<Integer> {
 
     void start() {
         IntStream.iterate(1, i -> i + 1).forEach(i -> {

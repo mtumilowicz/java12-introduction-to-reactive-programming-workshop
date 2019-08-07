@@ -18,7 +18,7 @@ class RunAnswer {
     }
 
     static def imperative() {
-        Step4_NumberPublisherAnswer numberPublisher = new Step4_NumberPublisherAnswer()
+        Step3_NumberPublisherAnswer numberPublisher = new Step3_NumberPublisherAnswer()
 
         Step2_PrintingSubscriberAnswer<String> printingSubscriber = new Step2_PrintingSubscriberAnswer<>()
         Step5_MappingProcessorAnswer<Integer, String> mappingProcessor = new Step5_MappingProcessorAnswer<>({

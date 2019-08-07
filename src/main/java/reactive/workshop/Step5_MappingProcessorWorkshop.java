@@ -5,7 +5,7 @@ import java.util.function.Function;
 /**
  * Created by mtumilowicz on 2018-05-21.
  */
-class Step5_MappingProcessorWorkshop<In, Out> extends Step3_ProcessorBaseWorkshop<In, Out> {
+class Step5_MappingProcessorWorkshop<In, Out> extends Step4_ProcessorBaseWorkshop<In, Out> {
     private final Function<In, Out> function;
 
     Step5_MappingProcessorWorkshop(Function<In, Out> function) {

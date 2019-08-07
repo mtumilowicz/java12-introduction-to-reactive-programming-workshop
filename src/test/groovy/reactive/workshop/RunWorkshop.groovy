@@ -18,7 +18,7 @@ class RunWorkshop {
     }
 
     static def imperative() {
-        Step4_NumberPublisherWorkshop numberPublisher = new Step4_NumberPublisherWorkshop()
+        Step3_NumberPublisherWorkshop numberPublisher = new Step3_NumberPublisherWorkshop()
 
         Step2_PrintingSubscriberWorkshop<String> printingSubscriber = new Step2_PrintingSubscriberWorkshop<>()
         Step5_MappingProcessorWorkshop<Integer, String> mappingProcessor = new Step5_MappingProcessorWorkshop<>({
