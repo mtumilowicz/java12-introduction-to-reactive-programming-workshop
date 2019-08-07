@@ -6,15 +6,15 @@ import java.util.function.Predicate;
  * Created by mtumilowicz on 2018-05-21.
  */
 class Step6_FilteringProcessorAnswer<T> extends Step4_ProcessorBaseAnswer<T, T> {
-    private final Predicate<T> predicate;
+    private final Predicate<T> condition;
 
-    Step6_FilteringProcessorAnswer(Predicate<T> predicate) {
-        this.predicate = predicate;
+    Step6_FilteringProcessorAnswer(Predicate<T> condition) {
+        this.condition = condition;
     }
 
     @Override
     public void onNext(T item) {
-        if (predicate.test(item)) {
+        if (condition.test(item)) {
             submit(item);
         }
 

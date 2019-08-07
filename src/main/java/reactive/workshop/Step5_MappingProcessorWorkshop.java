@@ -6,10 +6,10 @@ import java.util.function.Function;
  * Created by mtumilowicz on 2018-05-21.
  */
 class Step5_MappingProcessorWorkshop<In, Out> extends Step4_ProcessorBaseWorkshop<In, Out> {
-    private final Function<In, Out> function;
+    private final Function<In, Out> mapper;
 
-    Step5_MappingProcessorWorkshop(Function<In, Out> function) {
-        this.function = function;
+    Step5_MappingProcessorWorkshop(Function<In, Out> mapper) {
+        this.mapper = mapper;
     }
 
     @Override

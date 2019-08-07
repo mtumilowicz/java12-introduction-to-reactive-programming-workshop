@@ -8,15 +8,15 @@ import java.util.function.Predicate;
  * Created by mtumilowicz on 2019-07-29.
  */
 interface Step7_StreamAnswer<In> extends Flow.Publisher<In> {
-    default <R> Step9_MappingProcessorAnswer<In, R> map(Function<In, R> map) {
-        Step9_MappingProcessorAnswer<In, R> processor = new Step9_MappingProcessorAnswer<>(map);
+    default <R> Step9_MappingProcessorAnswer<In, R> map(Function<In, R> mapper) {
+        Step9_MappingProcessorAnswer<In, R> processor = new Step9_MappingProcessorAnswer<>(mapper);
         this.subscribe(processor);
 
         return processor;
     }
 
-    default Step10_FilteringProcessorAnswer<In> filter(Predicate<In> p) {
-        Step10_FilteringProcessorAnswer<In> processor = new Step10_FilteringProcessorAnswer<>(p);
+    default Step10_FilteringProcessorAnswer<In> filter(Predicate<In> condition) {
+        Step10_FilteringProcessorAnswer<In> processor = new Step10_FilteringProcessorAnswer<>(condition);
         this.subscribe(processor);
 
         return processor;

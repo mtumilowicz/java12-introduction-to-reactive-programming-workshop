@@ -6,10 +6,10 @@ import java.util.function.Predicate;
  * Created by mtumilowicz on 2018-05-21.
  */
 class Step6_FilteringProcessorWorkshop<T> extends Step4_ProcessorBaseWorkshop<T, T> {
-    private final Predicate<T> predicate;
+    private final Predicate<T> condition;
 
-    Step6_FilteringProcessorWorkshop(Predicate<T> predicate) {
-        this.predicate = predicate;
+    Step6_FilteringProcessorWorkshop(Predicate<T> condition) {
+        this.condition = condition;
     }
 
     @Override
