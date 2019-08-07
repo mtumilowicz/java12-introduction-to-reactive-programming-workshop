@@ -18,18 +18,17 @@ The main goal of this project is to explore basic features of
 ## definitions
 Conceptual map:  
 * **[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
-source of data.  
+source of data  
 * **[Flow.Subscriber](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscriber.html)** - 
-destination of data.  
+destination of data  
 * **[Flow.Subscription](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscription.html)** - 
 message control linking a `Flow.Publisher` and `Flow.Subscriber` 
-(`Subscriber` signal demand to `Publisher`).  
+(`Subscriber` signal demand to `Publisher` using `Subscription`)  
 * **[Flow.Processor](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Processor.html)** - 
 a component that acts as both a `Subscriber` and `Publisher` (can 
 consume input and produce output).  
 * **[Flow.SubmissionPublisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/SubmissionPublisher.html)** - 
-It's the only  one implementation (in `JDK`) of `Flow.Publisher`. 
-Moreover - has ability to asynchronously issue submitted (non-null) 
+the only one implementation (in `JDK`) of `Flow.Publisher`; has ability to asynchronously issue submitted (non-null) 
 items to current subscribers until it is closed.
 
 ## data flow
@@ -40,28 +39,27 @@ We have two scenarios:
 * `Publisher` is slow, `Subscriber` is fast (best scenario)
 * `Publisher` is fast, `Subscriber` is slow (the `Subscriber` must deal 
 with excessive data - the most naive approach is just to drop all 
-excessive data - so the data will be irrevitable).
+excessive data - so the data will be irrevitable)
 
 Note that if we have multiple `subscribers` and one `publisher` - they 
 are receiving elements in the same order.
 
 ## interaction steps
-1. Implement `Flow.Publisher` (useful, existing implementation that can be extended: `SubmissionPublisher<T>`) 
-and `Flow.Subscriber`
-1. The subscriber attempts to subscribe to the publisher by calling the 
+1. implement `Flow.Publisher` (using, for example `SubmissionPublisher<T>`) and `Flow.Subscriber`
+1. the subscriber attempts to subscribe to the publisher by calling the 
 `subscribe(Flow.Subscriber<? super T> subscriber)`
 method of the publisher
     * success: the publisher asynchronously calls the `onSubscribe(Flow.Subscription subscription)` 
     method of the subscriber
     * failure: `onError(Throwable throwable)` method of the subscriber is called 
     with an `IllegalStateException`, and the interaction ends
-1. The subscriber sends a request to the publisher for `N` items calling the `request(N)` 
+1. the subscriber sends a request to the publisher for `N` items calling the `request(N)` 
 on the `Subscription`
-1. Multiple requests are send regardless if earlier are already fulfilled (non-blocking)
-1. The publisher calls the `onNext(T item)` method of the subscriber and sends an item in each call
+1. multiple requests are send regardless if earlier are already fulfilled (non-blocking)
+1. the publisher calls the `onNext(T item)` method of the subscriber and sends an item in each call
     * if there is no more items to send the publisher calls the `onComplete()` method of the subscriber to signal
 the end of stream, and interaction ends
-    * note that if subscriber requested `Long.MAX_VALUE` items, the stream becomes not reactive - it is
+    * note that if subscriber requests `Long.MAX_VALUE` items, the stream becomes not reactive - it is
     effectively a push stream
 1. if the publisher encounters an error - calls `onError(Throwable throwable)` on subscriber
 1. the subscriber can cancel its subscription by calling the `cancel()` method on its subscription
