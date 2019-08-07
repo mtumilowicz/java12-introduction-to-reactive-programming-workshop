@@ -9,7 +9,7 @@ _Reference_: https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow
 
 ## preface
 The main goal of this project is to explore basic features of 
-`reactive streams` in `Java 9`:
+`reactive streams` introduced in `Java 9`:
 * **Publisher**
 * **Subscriber**
 * **Subscription** (**Backpressure**)
