@@ -6,7 +6,8 @@ _Reference_: [Out-of-the-box Reactive Streams with Java 9](https://www.youtube.c
 _Reference_: https://github.com/rucek/reactive-streams-java9  
 _Reference_: https://github.com/reactive-streams/reactive-streams-jvm  
 _Reference_: https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html  
-_Reference_: https://blog.softwaremill.com/how-not-to-use-reactive-streams-in-java-9-7a39ea9c2cb3
+_Reference_: https://blog.softwaremill.com/how-not-to-use-reactive-streams-in-java-9-7a39ea9c2cb3  
+_Reference_: https://thepracticaldeveloper.com/2018/01/31/reactive-programming-java-9-flow/
 
 ## preface
 The main goal of this project is to explore basic features of 
