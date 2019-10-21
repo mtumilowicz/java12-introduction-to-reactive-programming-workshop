@@ -18,7 +18,6 @@ The main goal of this project is to explore basic features of
 * **Processor** (**SubmissionPublisher**)
 
 ## definitions
-Conceptual map:  
 * **[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
 source of data  
 * **[Flow.Subscriber](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscriber.html)** - 
