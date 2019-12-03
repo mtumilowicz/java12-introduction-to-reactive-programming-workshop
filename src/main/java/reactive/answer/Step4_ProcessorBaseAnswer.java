@@ -4,7 +4,7 @@ import java.util.concurrent.Flow;
 import java.util.concurrent.SubmissionPublisher;
 
 abstract class Step4_ProcessorBaseAnswer<In, Out> extends Step1_SubscriberBaseAnswer<In>
-        implements Flow.Publisher<Out>, Flow.Processor<In, Out> {
+        implements Flow.Processor<In, Out> {
     private final SubmissionPublisher<Out> submissionPublisher = new SubmissionPublisher<>();
 
     @Override

@@ -3,7 +3,7 @@ package reactive.workshop;
 import java.util.concurrent.Flow;
 
 abstract class Step4_ProcessorBaseWorkshop<In, Out> extends Step1_SubscriberBaseWorkshop<In>
-        implements Flow.Publisher<Out>, Flow.Processor<In, Out> {
+        implements Flow.Processor<In, Out> {
     // create SubmissionPublisher
 
     @Override
