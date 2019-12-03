@@ -8,12 +8,13 @@ interface Step7_StreamWorkshop<In> extends Flow.Publisher<In> {
     default <R> Step9_MappingProcessorWorkshop<In, R> map(Function<In, R> map) {
         // create mapping processor, subscribe with it and return it
         // hint: Step9_MappingProcessorWorkshop, this.subscribe(...)
+
         return null;
     }
 
     default Step10_FilteringProcessorWorkshop<In> filter(Predicate<In> p) {
         // create filtering processor, subscribe with it and return it
-        // hint: Step9_MappingProcessorWorkshop, this.subscribe(...)
+        // hint: Step10_FilteringProcessorWorkshop, this.subscribe(...)
 
         return null;
     }
