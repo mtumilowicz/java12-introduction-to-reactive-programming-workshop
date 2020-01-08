@@ -2,9 +2,6 @@ package reactive.workshop;
 
 import java.util.concurrent.Flow;
 
-/**
- * Created by mtumilowicz on 2018-05-21.
- */
 abstract class Step1_SubscriberBaseWorkshop<T> implements Flow.Subscriber<T> {
     Flow.Subscription subscription;
 

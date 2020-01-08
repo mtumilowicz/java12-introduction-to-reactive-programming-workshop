@@ -2,9 +2,6 @@ package reactive.answer;
 
 import java.util.function.Predicate;
 
-/**
- * Created by mtumilowicz on 2018-05-21.
- */
 class Step6_FilteringProcessorAnswer<T> extends Step4_ProcessorBaseAnswer<T, T> {
     private final Predicate<T> condition;
 

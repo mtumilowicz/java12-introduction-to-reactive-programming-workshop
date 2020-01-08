@@ -1,11 +1,7 @@
 package reactive.workshop;
 
 import java.util.concurrent.Flow;
-import java.util.concurrent.SubmissionPublisher;
 
-/**
- * Created by mtumilowicz on 2018-05-21.
- */
 abstract class Step4_ProcessorBaseWorkshop<In, Out> extends Step1_SubscriberBaseWorkshop<In>
         implements Flow.Publisher<Out>, Flow.Processor<In, Out> {
     // create SubmissionPublisher

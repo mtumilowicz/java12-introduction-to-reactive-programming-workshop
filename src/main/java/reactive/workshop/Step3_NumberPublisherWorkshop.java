@@ -3,9 +3,6 @@ package reactive.workshop;
 import java.util.concurrent.SubmissionPublisher;
 import java.util.stream.IntStream;
 
-/**
- * Created by mtumilowicz on 2018-05-21.
- */
 class Step3_NumberPublisherWorkshop extends SubmissionPublisher<Integer> {
 
     void start() {

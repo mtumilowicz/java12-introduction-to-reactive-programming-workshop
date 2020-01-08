@@ -2,9 +2,6 @@ package reactive.workshop;
 
 import java.util.function.Predicate;
 
-/**
- * Created by mtumilowicz on 2018-05-21.
- */
 class Step6_FilteringProcessorWorkshop<T> extends Step4_ProcessorBaseWorkshop<T, T> {
     private final Predicate<T> condition;
 

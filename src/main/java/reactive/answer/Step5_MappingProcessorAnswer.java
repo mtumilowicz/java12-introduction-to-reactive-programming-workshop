@@ -2,9 +2,6 @@ package reactive.answer;
 
 import java.util.function.Function;
 
-/**
- * Created by mtumilowicz on 2018-05-21.
- */
 class Step5_MappingProcessorAnswer<In, Out> extends Step4_ProcessorBaseAnswer<In, Out> {
     private final Function<In, Out> mapper;
 
