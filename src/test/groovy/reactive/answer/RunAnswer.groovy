@@ -10,8 +10,8 @@ class RunAnswer {
     static def chaining() {
         def numberPublisher = new Step8_NumberPublisherAnswer()
         numberPublisher
-                .filter({ it % 2 == 0 })
-                .map({ "new mapping: ${it}" })
+                .filter { it % 2 == 0 }
+                .map { "new mapping: ${it}" }
                 .forEachPrint()
 
         numberPublisher.start()
