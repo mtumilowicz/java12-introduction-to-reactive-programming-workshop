@@ -75,10 +75,10 @@ Correctly `@Override` method `onSubscribe` looks as below:
 public void onSubscribe(Flow.Subscription subscription) {
     if (this.subscription == null) {
         this.subscription = subscription;
-        this.subscription.request(1);
+        this.subscription.request(1); // we handle backpressure through subscription
     }
     else {
-        subscription.cancel();
+        subscription.cancel(); // we handle cancellation through subscription
     }
 }
 ```
