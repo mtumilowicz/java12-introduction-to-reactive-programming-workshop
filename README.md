@@ -119,6 +119,11 @@ of concurrent code
     |---|---|
     |0, 1, oo   |0, 1   |
     |3 channels |2 channels (data, error) |
+* there are three key factors that make a stream reactive:
+    * the data is processed asynchronously
+    * the backpressure mechanism is non-blocking
+    * the fact that the downstream can be slower than the upstream is somehow represented in the domain model
+        * the Twitter streaming API, where you can be disconnected if consuming too slow
 * nonblocking backpressure
     * BUFFER - buffers all onNext values until the downstream consumes it
     * DROP - drops the most recent onNext value if the downstream can't keep up
@@ -170,10 +175,7 @@ private static void pushExample() {
 	observable.subscribe(System.out::println, System.out::println, () -> System.out.println("We are done!"));
 }
 ```
-* model domeny uwzglednia wolnych konsumentow
-    * np. Twitter API - informuje o tym ze za wolno pobieramy, jak
-    nie przyspieszymy to polaczenie zostanie zerwane
-    * https://rxmarbles.com/
+* https://rxmarbles.com/
 
 ## definitions
 * **[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
