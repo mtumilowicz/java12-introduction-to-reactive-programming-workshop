@@ -142,6 +142,40 @@ private static void pushExample() {
     * LATEST - Keeps only the latest onNext value, overwriting any previous value if the downstream can't keep up.
     * MISSING - OnNext events are written without any buffering or dropping.
 
+* The actual goal of having them included in the JDK is to provide something called a Service Provider Interface 
+(or SPI) layer. This should eventually serve as a unification layer for different components that have reactive 
+and streaming nature, but may expose their own custom APIs, and thus not be able to interoperate with other similar 
+implementations
+
+* Observable vs Observer pattern
+    * it's that, plus
+        * signal end of data stream
+        * propagate error
+        * evaluation may be synchronous, asynchronous or lazy
+* hot vs cold
+    * cold = every subscriber starts fresh subscription
+        * like iterator, if you start again you start from the
+        beginning
+    * hot = start from a point in time, like match online transmission
+* circuit breakers
+    * you cannot wait to process to get an exception, fail fast
+    * if you are busy circuit breaker should notify the client 
+    instead of you throwing an error
+* functional programming and exceptions are mutually exclusive
+* handling exceptions imperative style: if you are driving a car and
+have flat tire - the most illogical thing to do is to reverse back
+    * you should exit safely
+* you could block data, buffer on client side, buffer on producer side,
+and backpressure
+    * backpressure: info w przeciwnym kierunku, wolniejszy downstream informuje
+    szybszy upstream
+    * backpressure musi być nieblokujący
+* model domeny uwzglednia wolnych konsumentow
+    * np. Twitter API - informuje o tym ze za wolno pobieramy, jak
+    nie przyspieszymy to polaczenie zostanie zerwane
+    * https://rxmarbles.com/
+    * core idea behind reactive is to release resource whenever possible
+
 ## definitions
 * **[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
 source of data  
