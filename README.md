@@ -43,9 +43,9 @@ but to use resources (CPU, memory, ...) in the most efficient manner
 * functional (style): declarative + higher-order function
     * functional programming: function composition + lazy evaluation
 * functional programming and exceptions are mutually exclusive
-* handling exceptions imperative style: if you are driving a car and
-have flat tire - the most illogical thing to do is to reverse back
-    * you should exit safely
+* exceptions + java 8 streams: if you are driving a car and
+have a problem with a radio - the most illogical thing to do is to reverse back
+    * you should turn off the radio and continue journey
 * Michael Feather: OO makes code understandable by encapsulating moving parts. FP makes code understandable by 
 minimizing moving parts.
     * I moving part: immutability
@@ -59,7 +59,7 @@ minimizing moving parts.
             * providing responsiveness
                 * efficiency is attained not by doing tasks faster, but
                 by avoiding those that shouldn't be done in the first place
-        * resilient: make failure first-class citizen (it is okay
+        * resilient - make failure first-class citizen (it is okay
         to fail)
         * elastic - the only reasonable direction to scale is horizontally
         * message driven - do not expose your database instead
@@ -89,13 +89,12 @@ of concurrent code
         * `Schedulers.io()`
     * number of threads is therefore strictly limited
         * by memory also
-    * example of reactive application
-        * excel: if you modify one cell, it propagates to other cells
-        * google docs - hundreds of people use it simultaneously
+* example of reactive application
+    * excel: if you modify one cell, it propagates to other cells
+    * google docs - hundreds of people use it simultaneously
 ### java 8 streams
-* stream is not a data structure it is an abstraction of functions (with a data source: network, file, etc.)
+* stream is not a data structure it is is actually a collection of functions (with a data source: network, file, etc.)
     * Martin Fowler: [Collection Pipeline Pattern](https://martinfowler.com/articles/collection-pipeline/)
-    * it is actually a collection of functions
 * limitations
     * stream cannot be reused
     * single pipeline (a single terminal operation)
@@ -115,15 +114,21 @@ of concurrent code
     |sequential vs parallel   |synch vs async   |
     |single pipeline (one terminal operation)   |multiple subscribers   |
 * vs CompletableFuture
+
     |reactive streams   |CompletableFuture/Promises   |
     |---|---|
     |0, 1, oo   |0, 1   |
     |3 channels |2 channels (data, error) |
 * there are three key factors that make a stream reactive:
     * the data is processed asynchronously
-    * the backpressure mechanism is non-blocking
+    * the backpressure (strategy of co-op with very fast producer) mechanism is non-blocking
     * the fact that the downstream can be slower than the upstream is somehow represented in the domain model
         * the Twitter streaming API, where you can be disconnected if consuming too slow
+* Observable (producer) vs Observer pattern
+    * it's that, plus
+        * signal end of data stream
+        * propagate error
+        * evaluation may be synchronous, asynchronous or lazy
 * nonblocking backpressure
     * BUFFER - buffers all onNext values until the downstream consumes it
     * DROP - drops the most recent onNext value if the downstream can't keep up
@@ -134,13 +139,14 @@ of concurrent code
     * cold = every subscriber starts fresh subscription
         * like iterator, if you start again you start from the
         beginning
-    * hot = start from a point in time, like match online transmission
+    * hot = start from a point in time, like football online transmission
+* visualizations: https://rxmarbles.com/
 ### past and future
-* times when you have to go to bank and talk with a person,
-times when you have to go to travel agency to buy tickets
-    * in the past companies made products for their employees to use
-    and make those employees (nobody cares what they think) available to us the customers
-    * now companies build product for real-users, IOT
+* times when you have to go to bank and talk with a person
+* times when you have to go to travel agency to buy tickets
+* in the past companies made products for their employees to use
+and make those employees (nobody cares what they think) available to us the customers
+* now companies build product for real-users, IOT
 ### push vs pull protocols
 * push protocols: 
     * the client opens a connection to the server and keeps it constantly active
@@ -151,31 +157,26 @@ times when you have to go to travel agency to buy tickets
 then closes the connection and disconnects from the server
     * the client repeats this whole procedure to get updated about new events
     * in this mode, the clients periodically PULLs the new events from the server
-* Observable vs Observer pattern
-    * it's that, plus
-        * signal end of data stream
-        * propagate error
-        * evaluation may be synchronous, asynchronous or lazy
-```
-private static void pullExample() {
-	final List<String> list = Lists.newArrayList("Java", "C", "C++", "PHP", "Go");
-
-	final Iterator<String> iterator = list.iterator();
-
-    while (iterator.hasNext()) {
-    	System.out.println(iterator.next());
+* code example
+    ```
+    private static void pullExample() {
+        final List<String> list = Lists.newArrayList("Java", "C", "C++", "PHP", "Go");
+    
+        final Iterator<String> iterator = list.iterator();
+    
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
     }
-}
-
-private static void pushExample() {
-	final List<String> list = Lists.newArrayList("Java", "C", "C++", "PHP", "Go");
-
-	final Observable<String> observable = Observable.from(list);
-
-	observable.subscribe(System.out::println, System.out::println, () -> System.out.println("We are done!"));
-}
-```
-* https://rxmarbles.com/
+    
+    private static void pushExample() {
+        final List<String> list = Lists.newArrayList("Java", "C", "C++", "PHP", "Go");
+    
+        final Observable<String> observable = Observable.from(list);
+    
+        observable.subscribe(System.out::println, System.out::println, () -> System.out.println("We are done!"));
+    }
+    ```
 
 ## definitions
 * **[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
