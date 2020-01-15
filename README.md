@@ -52,7 +52,11 @@ minimizing moving parts.
     * II moving part: control flow (in imperative - we are going up and down to follow the flow)
 ### manifesto
 * https://www.reactivemanifesto.org/
-    * OOP four pillars: abstraction, encapsulation, inheritance, polymorphism
+    * OOP four pillars: 
+        * abstraction (programming is based on making abstractions), 
+        * encapsulation (best practice for every programming style), 
+        * inheritance (golang has no inheritance), 
+        * polymorphism (makes actually OOP)
     * reactive four pillars 
         * responsive
             * infinite-scrolling
@@ -209,7 +213,8 @@ are receiving elements in the same order.
 ## interaction steps
 1. implement `Flow.Publisher` (using, for example `SubmissionPublisher<T>`) and `Flow.Subscriber`
 1. the subscriber attempts to subscribe to the publisher by calling the 
-`subscribe(Flow.Subscriber<? super T> subscriber)`
+`subscribe(Flow.Subscriber<? super T> subscriber)
+    * take a look at `SubmissionPublisher.subscribe(Subscriber<? super T> subscriber)`
 method of the publisher
     * success: the publisher asynchronously calls the `onSubscribe(Flow.Subscription subscription)` 
     method of the subscriber
@@ -243,10 +248,11 @@ public void onSubscribe(Flow.Subscription subscription) {
     }
 }
 ```
-because we want our `Subscriber` talk to only one `Publisher` - 
+* because we want our `Subscriber` talk to only one `Publisher` - 
 `Subscription` represents a link between single `Subscriber` and single 
 `Publisher` so you have to cancel the incoming one (if we already have 
-one, we don't accept any furthers).
+one, we don't accept any furthers)
+    * think about subscriber as a radio receiver, subscriptions as radio waves, and publisher as radio station
 
 * the actual goal of having them included in the JDK is to provide something called a Service Provider Interface 
 (or SPI) layer
