@@ -8,6 +8,7 @@
     * [Reactive Programming by Venkat Subramaniam](https://www.youtube.com/watch?v=weWSYIUdX6chttps://www.youtube.com/watch?v=weWSYIUdX6c)
     * [From Functional to Reactive Programming, Venkat Subramaniam](https://www.youtube.com/watch?v=U_NgcAg7jyY)
     * [WJUG #239 - Jacek Kunicki: Jak (nie) używać Reactive Streams w Javie 9+](https://www.youtube.com/watch?v=8zVcpjSxT1o)
+    * https://www.manning.com/books/akka-in-action
     * https://github.com/rucek/reactive-streams-java9
     * https://github.com/reactive-streams/reactive-streams-jvm
     * https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html  
@@ -68,6 +69,16 @@ minimizing moving parts.
         * elastic - the only reasonable direction to scale is horizontally
         * message driven - do not expose your database instead
         export your data
+    * reactive manifesto conclusions
+        * blocking I/O limits opportunities for parallelism, so nonblocking I/O is preferred
+        * synchronous interaction limits opportunities for parallelism - asynchronous 
+        interaction is preferred
+        * polling reduces opportunity to use fewer resources, so an event-driven style is preferred
+        * if one node can bring down all other nodes, that’s a waste of resources
+            * you need isolation of errors (resilience) to avoid losing all your work
+        * systems need to be elastic: if there’s less demand - use fewer resources
+            * if there’s more demand - use more resources, but never more than required
+            
 ### concurrency context
 * shared mutability
     ```
