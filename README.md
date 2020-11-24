@@ -8,6 +8,7 @@
     * [Reactive Programming by Venkat Subramaniam](https://www.youtube.com/watch?v=weWSYIUdX6chttps://www.youtube.com/watch?v=weWSYIUdX6c)
     * [From Functional to Reactive Programming, Venkat Subramaniam](https://www.youtube.com/watch?v=U_NgcAg7jyY)
     * [WJUG #239 - Jacek Kunicki: Jak (nie) używać Reactive Streams w Javie 9+](https://www.youtube.com/watch?v=8zVcpjSxT1o)
+    * [GOTO 2018 • Real-world Reactive Programming in Java: The Definitive Guide • Erwin de Gier](https://www.youtube.com/watch?v=fXWywFRwHOk)
     * https://www.manning.com/books/akka-in-action
     * https://github.com/rucek/reactive-streams-java9
     * https://github.com/reactive-streams/reactive-streams-jvm
@@ -163,6 +164,8 @@ of concurrent code
 and make those employees (nobody cares what they think) available to us the customers
 * now companies build product for real-users, IOT
 ### push vs pull protocols
+* summary
+    ![alt text](img/pull_vs_push.png)
 * push protocols: 
     * the client opens a connection to the server and keeps it constantly active
     * the server will send (push) all new events to the client using that single always-on connection 
