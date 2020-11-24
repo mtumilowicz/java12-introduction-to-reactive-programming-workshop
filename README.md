@@ -165,6 +165,7 @@ and make those employees (nobody cares what they think) available to us the cust
 * now companies build product for real-users, IOT
 ### push vs pull protocols
 * summary
+
     ![alt text](img/pull_vs_push.png)
 * push protocols: 
     * the client opens a connection to the server and keeps it constantly active
