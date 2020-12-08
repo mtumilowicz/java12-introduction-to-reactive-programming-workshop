@@ -21,8 +21,10 @@
     * http://reactivex.io/RxJava/2.x/javadoc/io/reactivex/schedulers/Schedulers.html
 
 ## preface
+
 The main goal of this project is to explore basic features of 
 `reactive streams` introduced in `Java 9`:
+
 * **Publisher**
 * **Subscriber**
 * **Subscription** (**Backpressure**)
@@ -198,6 +200,7 @@ then closes the connection and disconnects from the server
     ```
 
 ## definitions
+
 * **[Flow.Publisher](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Publisher.html)** - 
 source of data  
 * **[Flow.Subscriber](https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.Subscriber.html)** - 
@@ -213,19 +216,24 @@ the only one implementation (in `JDK`) of `Flow.Publisher`; has ability to async
 items to current subscribers until it is closed.
 
 ## data flow
+
 ```
 PUBLISHER -> PROCESSOR -> PROCESSOR -> SUBSCRIBER
 ```
+
 We have two scenarios:  
+
 * `Publisher` is slow, `Subscriber` is fast (best scenario)
 * `Publisher` is fast, `Subscriber` is slow (the `Subscriber` must deal 
+
 with excessive data - the most naive approach is just to drop all 
-excessive data - so the data will be irrevitable)
+excessive data - so the data will be lost)
 
 Note that if we have multiple `subscribers` and one `publisher` - they 
 are receiving elements in the same order.
 
 ## interaction steps
+
 1. implement `Flow.Publisher` (using, for example `SubmissionPublisher<T>`) and `Flow.Subscriber`
 1. the subscriber attempts to subscribe to the publisher by calling the 
 `subscribe(Flow.Subscriber<? super T> subscriber)
@@ -250,7 +258,9 @@ the end of stream, and interaction ends
     cancellation if there were pending requests before
 
 ## additional remarks
+
 Correctly `@Override` method `onSubscribe` looks as below:
+
 ```
 @Override
 public void onSubscribe(Flow.Subscription subscription) {
@@ -276,10 +286,14 @@ one, we don't accept any furthers)
     implementations
 
 ## tests
+
 We test it by running:
+
 * `RunAnswer`
 * `RunWorkshop`
+
 the output should be:
+
 ```
 onNext, item: new mapping: 2
 onNext, item: new mapping: 4
