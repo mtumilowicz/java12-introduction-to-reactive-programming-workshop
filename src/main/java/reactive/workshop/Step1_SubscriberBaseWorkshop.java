@@ -7,7 +7,7 @@ abstract class Step1_SubscriberBaseWorkshop<T> implements Flow.Subscriber<T> {
 
     @Override
     public void onSubscribe(Flow.Subscription subscription) {
-        // if we already has subscription set - we cancel incoming subscription, hint: cancel()
+        // if we already have subscription set - we cancel incoming subscription, hint: cancel()
         // otherwise - set subscription, and request 1 elem, hint: request(1)
     }
 
